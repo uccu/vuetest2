@@ -11,6 +11,7 @@
       <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
     </ul>
     <h2>Ecosystem</h2>
+    <span class="oi oi-arrow-thick-top"></span>
     <ul>
       <li><a href="#/login">vue-router</a></li>
     </ul>
@@ -19,6 +20,7 @@
 
 <script>
 import $ from 'jquery'
+import 'open-iconic/font/css/open-iconic-bootstrap.min.css'
 export default {
   name: 'HelloWorld',
   data () {

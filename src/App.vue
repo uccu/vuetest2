@@ -14,10 +14,6 @@ $(a => {
   $(window).on('resize', b => {
     document.querySelector('#app').style.height = window.innerHeight + 'px'
   }).resize()
-  $('input.input__field').on({
-    'focus': function () { $(this).parent().addClass('input--filled') },
-    'blur': function () { if ($(this).val().trim() === '')$(this).parent().removeClass('input--filled') }
-  })
 })
 </script>
 

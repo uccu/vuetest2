@@ -2,39 +2,46 @@
     <div class="login tc pr">
         <div class="login-background pa"></div>
         <h3 class="title">Login</h3>
-        <div class="tc ofh">
-            <span class="input--hoshi">
-                <input class="input__field input__field--hoshi" type="text" name="email" id="email">
-                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="uid">
-                <span class="input__label-content input__label-content--hoshi">邮箱</span>
-                </label>
-            </span>
-            <span class="input--hoshi">
-                <input class="input__field input__field--hoshi" type="password" name="password" id="password">
-                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="uid">
-                <span class="input__label-content input__label-content--hoshi">密码</span>
+        <div class="tc ofh" v-on:click.native="t()">
+            <span class="input--hoshi" v-for="input in inputs">
+                <input class="input__field input__field--hoshi" type="text" :name="input.name" :id="input.name" v-on:focus="focus(input.name,$event)" v-on:blur="blur(input.name)">
+                <label class="input__label input__label--hoshi input__label--hoshi-color-3" :for="input.name">
+                <span class="input__label-content input__label-content--hoshi">{{ input.title }}</span>
                 </label>
             </span>
         </div>
         <div class="tc">
-            <button class="btnn t-1 cp">登录</button>
+            <button class="btnn t-1 cp" v-on:click="index()">登录</button>
             <button class="btnn t-1 cp">注册</button>
         </div>
     </div>
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   name: 'login',
   data () {
     return {
-      msg: 'Login'
+      msg: 'Login',
+      inputs: [
+        { name: 'email', title: '邮箱' },
+        { name: 'password', title: '密码' }
+      ]
     }
   },
   methods: {
-    te () {
-      this.msg = 'ww'
-      console.log(this.msg)
+    'focus': function (z,$event) {
+      $('#' + z).parent().addClass('input--filled')
+    },
+    'blur': function (z) {
+      if ($('#' + z).val().trim() === '')$('#' + z).parent().removeClass('input--filled')
+    },
+    index: function () {
+      window.location = '#/index'
+    },
+    t: function () {
+      console.log(1)
     }
   }
 }
