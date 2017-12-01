@@ -4,7 +4,7 @@
         <h3 class="title">Login</h3>
         <div class="tc ofh" v-on:click.native="t()">
             <span class="input--hoshi" v-for="input in inputs">
-                <input class="input__field input__field--hoshi" type="text" :name="input.name" :id="input.name" v-on:focus="focus(input.name,$event)" v-on:blur="blur(input.name)">
+                <input class="input__field input__field--hoshi" :type="input.type" :name="input.name" :id="input.name" v-on:focus="focus(input.name,$event)" v-on:blur="blur(input.name)">
                 <label class="input__label input__label--hoshi input__label--hoshi-color-3" :for="input.name">
                 <span class="input__label-content input__label-content--hoshi">{{ input.title }}</span>
                 </label>
@@ -25,13 +25,13 @@ export default {
     return {
       msg: 'Login',
       inputs: [
-        { name: 'email', title: '邮箱' },
-        { name: 'password', title: '密码' }
+        { name: 'email', title: '邮箱', type: 'text' },
+        { name: 'password', title: '密码', type: 'password' }
       ]
     }
   },
   methods: {
-    'focus': function (z,$event) {
+    'focus': function (z, $event) {
       $('#' + z).parent().addClass('input--filled')
     },
     'blur': function (z) {

@@ -22,6 +22,7 @@ $(a => {
 ::-webkit-scrollbar-track-piece {background-color: #fff;border-radius: 6px}
 ::-webkit-scrollbar{width: 6px;height: 6px}
 ::-webkit-scrollbar-thumb {height: 40px;background:#999;border-radius:6px}
+::-webkit-input-placeholder {color:#bbb}
 .t,.t *{transition: all 0.3s;-moz-transition: all 0.3s;-webkit-transition: all 0.3s;-o-transition: all 0.3s}
 .t-1,.t-1 *{transition: all 1s;-moz-transition: all 1s;-webkit-transition: all 1s;-o-transition: all 1s}
 .t-2,.t-2 *{transition: all 2s;-moz-transition: all 2s;-webkit-transition: all 2s;-o-transition: all 2s}
@@ -39,7 +40,7 @@ input[type=file]{border:0}
 #app{
   justify-content:center;
   align-items:center;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 </style>
